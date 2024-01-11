@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_playground/other_state_provider_page.dart';
+import 'package:riverpod_playground/state_provider_page.dart';
 
-class StateProviderPage extends ConsumerWidget {
-  const StateProviderPage({super.key});
+class OtherStateProviderPage extends ConsumerWidget {
+  const OtherStateProviderPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('StateProviderPage'),
+        title: const Text('OtherStateProviderPage'),
       ),
       body: Center(
         child: Column(
@@ -29,17 +29,6 @@ class StateProviderPage extends ConsumerWidget {
               },
               child: const Text('reset'),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const OtherStateProviderPage(),
-                  ),
-                );
-              },
-              child: const Text('OtherProviderPage'),
-            ),
           ],
         ),
       ),
@@ -47,8 +36,3 @@ class StateProviderPage extends ConsumerWidget {
   }
 }
 
-final count2Provider = StateProvider(
-  (ref){
-    return 0;
-  }
-);

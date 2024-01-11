@@ -15,7 +15,7 @@ class Home extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Riverpod'),
+        title: const Text('Provider'),
       ),
       body: const Center(
         child: Column(
@@ -26,24 +26,24 @@ class Home extends ConsumerWidget {
               name: '①Provider',
             ),
             Page(
-              path: StateNotifierProviderPage(),
-              name: '②StateNotifierProvider',
-            ),
-            Page(
               path: StateProviderPage(),
-              name: '③StateProvider',
+              name: '②StateProvider',
             ),
             Page(
-              path: FutureProviderPage(),
-              name: '④FutureProvider',
-            ),
-            Page(
-              path: AsyncNotifierProviderPage(),
-              name: '⑤AsyncNotifierProvider',
+              path: StateNotifierProviderPage(),
+              name: '③StateNotifierProvider',
             ),
             Page(
               path: NotifierProviderPage(),
-              name: '⑥NotifierProvider',
+              name: '⑤NotifierProvider',
+            ),
+            Page(
+              path: FutureProviderPage(),
+              name: '⑥FutureProvider',
+            ),
+            Page(
+              path: AsyncNotifierProviderPage(),
+              name: '⑦AsyncNotifierProvider',
             ),
           ],
         ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_playground/other_future_provider_page.dart';
+import 'package:riverpod_playground/future_provider_page.dart';
 
-class FutureProviderPage extends ConsumerWidget {
-  const FutureProviderPage({super.key});
+class OtherFutureProviderPage extends ConsumerWidget {
+  const OtherFutureProviderPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -30,27 +30,9 @@ class FutureProviderPage extends ConsumerWidget {
               },
               child: const Text('reload'),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const OtherFutureProviderPage(),
-                  ),
-                );
-              },
-              child: const Text('OtherFutureProviderPage'),
-            ),
           ],
         ),
       ),
     );
   }
 }
-
-final delayFetchProvider = FutureProvider<String>(
-  (ref) async {
-    await Future.delayed(const Duration(seconds: 3));
-    return 'あけましておめでとう';
-  },
-);

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_playground/other_async_notifier_provider_page.dart';
 import 'package:simple_logger/simple_logger.dart';
 
 class AsyncNotifierProviderPage extends ConsumerWidget {
@@ -19,7 +20,7 @@ class AsyncNotifierProviderPage extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(asyncValueInt.toString()),
+            // Text(asyncValueInt.toString()),
             asyncValueInt.when(
               error: (err, _) => Text(err.toString()),
               loading: () => const CircularProgressIndicator(),
@@ -27,15 +28,26 @@ class AsyncNotifierProviderPage extends ConsumerWidget {
             ),
             TextButton(
               onPressed: () {
-                ref.read(count3Provider.notifier).increment(context);
+                ref.read(count3Provider.notifier).to3(context);
               },
-              child: const Text('increment'),
+              child: const Text('to3'),
             ),
             TextButton(
               onPressed: () {
                 ref.read(count3Provider.notifier).log(context);
               },
               child: const Text('log'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const OtherAsyncNotifierProviderPage(),
+                  ),
+                );
+              },
+              child: const Text('OtherAsyncNotifierProviderPage'),
             ),
           ],
         ),
@@ -57,7 +69,7 @@ class Count3Notifier extends AsyncNotifier<int> {
     logger.info(state.toString());
   }
 
-  Future<void> increment(BuildContext context) async{
+  Future<void> to3(BuildContext context) async{
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       await Future.delayed(const Duration(seconds: 3));
@@ -65,11 +77,6 @@ class Count3Notifier extends AsyncNotifier<int> {
       return data;
     });
   }
-
-  // Future<void> reset(BuildContext context) async{
-  //   await Future.delayed(const Duration(seconds: 3));
-  //   state = 0;
-  // }
 }
 
 final count3Provider = AsyncNotifierProvider<Count3Notifier, int>(Count3Notifier.new);

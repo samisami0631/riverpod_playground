@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_playground/other_state_notifier_provider_page.dart';
+import 'package:riverpod_playground/state_notifier_provider_page.dart';
 
-class StateNotifierProviderPage extends ConsumerWidget {
-  const StateNotifierProviderPage({super.key});
+class OtherStateNotifierProviderPage extends ConsumerWidget {
+  const OtherStateNotifierProviderPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,38 +28,10 @@ class StateNotifierProviderPage extends ConsumerWidget {
                 ref.read(countProvider.notifier).reset();
               },
               child: const Text('reset'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const OtherStateNotifierProviderPage(),
-                  ),
-                );
-              },
-              child: const Text('OtherStateNotifierProviderPage'),
-            ),
+            )
           ],
         ),
       ),
     );
   }
 }
-
-class CountNotifier extends StateNotifier<int> {
-  CountNotifier() : super(0);
-
-  void increment() {
-    state++;
-  }
-
-  void reset(){
-    state = 0;
-  }
-}
-
-final countProvider = StateNotifierProvider<CountNotifier, int>((ref){
-    return CountNotifier();
-  }
-);
