@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_playground/state_notifier_provider.dart';
 
 class StateNotifierProviderPage extends ConsumerWidget {
   const StateNotifierProviderPage({super.key});
@@ -14,8 +13,8 @@ class StateNotifierProviderPage extends ConsumerWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('StateNotifierProviderPage'),
             Text(ref.watch(countProvider).toString()),
             TextButton(
               onPressed: () {
@@ -35,3 +34,20 @@ class StateNotifierProviderPage extends ConsumerWidget {
     );
   }
 }
+
+class CountNotifier extends StateNotifier<int> {
+  CountNotifier() : super(0);
+
+  void increment() {
+    state++;
+  }
+
+  void reset(){
+    state = 0;
+  }
+}
+
+final countProvider = StateNotifierProvider<CountNotifier, int>((ref){
+    return CountNotifier();
+  }
+);
