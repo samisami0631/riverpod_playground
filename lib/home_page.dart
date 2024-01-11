@@ -15,7 +15,7 @@ class Home extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Provider'),
+        title: const Text('Riverpod'),
       ),
       body: const Center(
         child: Column(

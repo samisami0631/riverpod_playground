@@ -38,7 +38,7 @@ class StateProviderPage extends ConsumerWidget {
                   ),
                 );
               },
-              child: const Text('OtherProviderPage'),
+              child: const Text('OtherStateProviderPage'),
             ),
           ],
         ),

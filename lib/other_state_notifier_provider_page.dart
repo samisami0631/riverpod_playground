@@ -10,7 +10,7 @@ class OtherStateNotifierProviderPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('StateNotifierProviderPage'),
+        title: const Text('OtherStateNotifierProviderPage'),
       ),
       body: Center(
         child: Column(

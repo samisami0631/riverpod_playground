@@ -11,7 +11,7 @@ class OtherAsyncNotifierProviderPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('AsyncNotifierProviderPage'),
+        title: const Text('OtherAsyncNotifierProviderPage'),
       ),
       body: Center(
         child: Column(

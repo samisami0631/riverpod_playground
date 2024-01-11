@@ -12,7 +12,7 @@ class OtherFutureProviderPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('FutureProviderPage'),
+        title: const Text('OtherFutureProviderPage'),
       ),
       body: Center(
         child: Column(
