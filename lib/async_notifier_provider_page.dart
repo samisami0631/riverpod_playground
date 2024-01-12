@@ -70,6 +70,7 @@ class Count3Notifier extends AsyncNotifier<int> {
   }
 
   Future<void> to3(BuildContext context) async{
+    // ここではローディング表示をしてみたかったのでAsyncLoadingに変更
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       await Future.delayed(const Duration(seconds: 3));
